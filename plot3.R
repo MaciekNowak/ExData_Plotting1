@@ -44,7 +44,7 @@ lines(x = plotData$t,
       type = "l",
       col = "blue")
 
-legend("topright", pch = "-",
+legend("topright", pch = "_",
        col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
