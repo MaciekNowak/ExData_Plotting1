@@ -1,5 +1,5 @@
 #
-# plot1.R - The Exploratory Data Analysis Course Project 1
+# plot2.R - The Exploratory Data Analysis Course Project 1
 #
 
 # Read the data into powerData data.frame
@@ -17,12 +17,16 @@ endDate <- as.Date(strptime("2007-02-02", "%Y-%m-%d"))
 plotData <- powerData[ powerData$Days >= startDate & powerData$Days <= endDate , ]
 rm(powerData) # release the memory
 
-# Print the requested plot into plot1.png
+plotData$t <- strptime(paste(plotData$Date, plotData$Time), "%d/%m/%Y %H:%M:%S")
+
+# Print the requested plot into plot2.png
 #
 print(paste("plotting"))
-png(file = "plot1.png", width = 480, height = 480, units = "px")
-hist(plotData$Global_active_power, 
-     main = "Global Active Power",
-     xlab = "Global Active Power (kilowatts)",
-     col = "red")
+png(file = "plot2.png", width = 480, height = 480, units = "px")
+plot(x = plotData$t,
+     y = plotData$Global_active_power,
+     type = "l",
+     xlab = " ",
+     ylab = "Global Active Power (kilowatts)",
+     col = "black")
 dev.off()
